@@ -38,6 +38,7 @@ public class BinarySearchTree {
 		}
 
 	}
+
 	public void traversal() {
 		System.out.printf("%nPreorder: ");
 		preOrderTraversal(root);
@@ -45,33 +46,55 @@ public class BinarySearchTree {
 		inOrderTraversal(root);
 		System.out.printf("%nPostorder: ");
 		postOrderTraversal(root);
-		
+
 	}
+
 	public void preOrderTraversal(INode n) {
-		if(n==null) {
+		if (n == null) {
 			return;
 		}
-		System.out.printf(n.data+" ");
+		System.out.printf(n.data + " ");
 		preOrderTraversal(n.left);
 		preOrderTraversal(n.right);
 	}
-	
+
 	public void postOrderTraversal(INode n) {
-		if(n==null) {
+		if (n == null) {
 			return;
 		}
-		preOrderTraversal(n.left);
-		preOrderTraversal(n.right);
-		System.out.printf(n.data+" ");
+		postOrderTraversal(n.left);
+		postOrderTraversal(n.right);
+		System.out.printf(n.data + " ");
 	}
-	
+
 	public void inOrderTraversal(INode n) {
-		if(n==null) {
+		if (n == null) {
 			return;
 		}
-		preOrderTraversal(n.left);
-		System.out.printf(n.data+" ");
-		preOrderTraversal(n.right);
+		inOrderTraversal(n.left);
+		System.out.printf(n.data + " ");
+		inOrderTraversal(n.right);
 	}
+
+	public void search(int data) {
+		INode n = root;
+		if (n == null) {
+			System.out.println("Empty tree");
+		} else {
+			while (n != null) {
+				if (n.data == data) {
+					System.out.println("Is Present");
+					return;
+				} else if (n.data > data) {
+					n = n.right;
+				} else
+					n = n.left;
+			}
+			System.out.println("Not Present");
+
+		}
+	}
+
 	
+
 }
