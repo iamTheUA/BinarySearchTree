@@ -11,6 +11,7 @@ public class BSTMain {
 		tree.insert(70);
 
 		tree.traversal();
+		tree.search(30);
 	}
 
 }
